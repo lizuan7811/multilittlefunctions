@@ -19,6 +19,9 @@ public class SystemInfoMonitor {
 	}
 
 	public String readSystemCpuInfo() {
+		
+		System.out.println("readSystemCpuInfo");
+
 		CentralProcessor centralprocess = getSystemInfo().getHardware().getProcessor();
 		long[] prevTicks = centralprocess.getSystemCpuLoadTicks();
 		long[] ticks = centralprocess.getSystemCpuLoadTicks();
@@ -41,9 +44,11 @@ public class SystemInfoMonitor {
 				- prevTicks[CentralProcessor.TickType.IDLE.getIndex()];
 
 		long totalCpu = idle + iowait + user + cSys + steal + softirq + irq + nice;
+		System.out.println(totalCpu);
+
 		String result = String.format("CPU 總量: %s , CPU使用率: %s", centralprocess.getLogicalProcessorCount(),
 				new DecimalFormat("#.##%").format(1.0 - (idle * 1.0 / totalCpu)));
-		log.info("CPU Result: {}", result);
+		log.debug("CPU Result: {}", result);
 
 		sleepOneSecond();
 		return result;
@@ -51,35 +56,38 @@ public class SystemInfoMonitor {
 
 	public String readSystemMemInfo() {
 		GlobalMemory globalMem = getSystemInfo().getHardware().getMemory();
-		long totalByte = globalMem.getAvailable();
-		long acaliableByte = globalMem.getTotal();
-		String result = String.format("MEM總量: %s , MEM使用率: %s",  formatByte(totalByte),
+		long acaliableByte = globalMem.getAvailable();
+		long totalByte = globalMem.getTotal();
+		String result = String.format("MEM總量: %s , MEM使用率: %s", formatByte(totalByte),
 				new DecimalFormat("#.##%").format((totalByte - acaliableByte) * 1.0 / totalByte));
-		log.info("MEM Result: {}", result);
+		log.debug("MEM Result: {}", result);
 		sleepOneSecond();
 		return result;
 
 	}
 
 	private String formatByte(long byteNumber) {
-		
-		String result=StringUtils.EMPTY;
+
+		String result = StringUtils.EMPTY;
 		double FORMAT = 1024.0;
 		double kbNubmer = byteNumber / FORMAT;
 		if (kbNubmer < FORMAT) {
-			result=new DecimalFormat("#.##KB").format(kbNubmer);
+			result = new DecimalFormat("#.##KB").format(kbNubmer);
 		}
-		double mbNubmer = kbNubmer / FORMAT;;
+		double mbNubmer = kbNubmer / FORMAT;
+		;
 		if (mbNubmer < FORMAT) {
-			result=new DecimalFormat("#.##MB").format(mbNubmer);
+			result = new DecimalFormat("#.##MB").format(mbNubmer);
 		}
-		double gbNubmer = mbNubmer / FORMAT;;
+		double gbNubmer = mbNubmer / FORMAT;
+		;
 		if (gbNubmer < FORMAT) {
-			result=new DecimalFormat("#.##GB").format(gbNubmer);
+			result = new DecimalFormat("#.##GB").format(gbNubmer);
 		}
-		double tbNubmer = gbNubmer / FORMAT;;
+		double tbNubmer = gbNubmer / FORMAT;
+		;
 		if (tbNubmer < FORMAT) {
-			result=new DecimalFormat("#.##TB").format(tbNubmer);
+			result = new DecimalFormat("#.##TB").format(tbNubmer);
 		}
 		return result;
 	}

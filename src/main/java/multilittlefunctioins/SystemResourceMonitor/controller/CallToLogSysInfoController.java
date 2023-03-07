@@ -1,6 +1,6 @@
 package multilittlefunctioins.SystemResourceMonitor.controller;
 
-import org.apache.logging.log4j.util.Strings;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -20,7 +20,7 @@ public class CallToLogSysInfoController {
 
 	@GetMapping(value = "/callSysCpu", produces = MediaType.APPLICATION_JSON_VALUE)
 	public String callSysCpu() {
-		String result = Strings.EMPTY;
+		String result = StringUtils.EMPTY;
 
 		try {
 			result = callToLogSysInfoService.readSysCpuInfo();
@@ -33,7 +33,7 @@ public class CallToLogSysInfoController {
 
 	@GetMapping(value = "/callSysMem", produces = MediaType.APPLICATION_JSON_VALUE)
 	public String callSysMem() {
-		String result = Strings.EMPTY;
+		String result = StringUtils.EMPTY;
 
 		try {
 			result = callToLogSysInfoService.readSysMemInfo();

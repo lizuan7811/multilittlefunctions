@@ -1,1 +1,5 @@
-debug=enable
+logging:
+  file: "app.log"
+  path: "C:/Users/ASUS/Desktop/applog"
+  level: 
+    root: DEBUG
