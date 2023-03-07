@@ -3,6 +3,7 @@ package monitorsysinfoutil;
 import java.text.DecimalFormat;
 
 import org.apache.commons.lang3.StringUtils;
+import org.springframework.stereotype.Component;
 
 import lombok.extern.slf4j.Slf4j;
 import oshi.SystemInfo;
@@ -10,6 +11,7 @@ import oshi.hardware.CentralProcessor;
 import oshi.hardware.GlobalMemory;
 
 @Slf4j
+@Component
 public class SystemInfoMonitor {
 
 	private SystemInfo getSystemInfo() {
