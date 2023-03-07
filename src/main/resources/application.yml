@@ -1,3 +1,5 @@
+server:
+  port: 9999
 logging:
   file: "app.log"
   path: "C:/Users/ASUS/Desktop/applog"

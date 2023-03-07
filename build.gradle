@@ -6,6 +6,7 @@ plugins {
 repositories {
     mavenCentral()
 }
+
 dependencies {
     // Use JUnit Jupiter for testing.
  //   testImplementation 'org.junit.jupiter:junit-jupiter:5.9.1'
@@ -47,7 +48,7 @@ dependencies {
     api 'org.apache.commons:commons-math3:3.6.1'
     
 	// https://mvnrepository.com/artifact/org.apache.tika/tika-core
-	implementation group: 'org.apache.tika', name: 'tika-core', version: '2.6.0'
+	//implementation group: 'org.apache.tika', name: 'tika-core', version: '2.6.0'
 	
 	implementation fileTree(dir: 'libs', include: ['*.jar'])
 
@@ -61,15 +62,15 @@ dependencies {
 
 	//Kubernetes 
 	//https://mvnrepository.com/artifact/io.kubernetes/client-java
-	implementation group: 'io.kubernetes', name: 'client-java', version: '17.0.1'
+	//implementation group: 'io.kubernetes', name: 'client-java', version: '17.0.1'
 	// https://mvnrepository.com/artifact/io.kubernetes/client-java-api
-	implementation group: 'io.kubernetes', name: 'client-java-api', version: '17.0.1'
+	//implementation group: 'io.kubernetes', name: 'client-java-api', version: '17.0.1'
 	// https://mvnrepository.com/artifact/io.kubernetes/client-java-extended
-	implementation group: 'io.kubernetes', name: 'client-java-extended', version: '17.0.1'
+	//implementation group: 'io.kubernetes', name: 'client-java-extended', version: '17.0.1'
 	// https://mvnrepository.com/artifact/io.kubernetes/client-java-proto
-	implementation group: 'io.kubernetes', name: 'client-java-proto', version: '17.0.1'
+	//implementation group: 'io.kubernetes', name: 'client-java-proto', version: '17.0.1'
 	// https://mvnrepository.com/artifact/io.kubernetes/client-java-api-fluent
-	implementation group: 'io.kubernetes', name: 'client-java-api-fluent', version: '17.0.1'
+	//implementation group: 'io.kubernetes', name: 'client-java-api-fluent', version: '17.0.1'
 	//compile 'io.kubernetes:client-java:17.0.1'
 	
 		//compile dependency
@@ -99,18 +100,21 @@ dependencies {
 //	runtimeOnly group: 'com.squareup.okio', name: 'okio-jvm', version: '3.3.0'
     
 	// https://mvnrepository.com/artifact/com.github.oshi/oshi-core
-	implementation group: 'com.github.oshi', name: 'oshi-core', version: '6.4.0'
+	//implementation group: 'com.github.oshi', name: 'oshi-core', version: '6.4.0'
+	// https://mvnrepository.com/artifact/com.github.oshi/oshi-core
+	implementation group: 'com.github.oshi', name: 'oshi-core', version: '6.0.0'
+	
 		//Lombok
 	implementation group: 'org.projectlombok', name: 'lombok', version: '1.18.24'
     // Log Apis
 	compileOnly group: 'org.projectlombok', name: 'lombok', version: '1.18.24'
 	annotationProcessor group: 'org.projectlombok', name: 'lombok', version: '1.18.24' 
 	testAnnotationProcessor group: 'org.projectlombok', name: 'lombok', version: '1.18.24'
-	//implementation group: 'org.slf4j', name: 'slf4j-api', version: '1.7.36'
-	//implementation group: 'org.slf4j', name: 'log4j-over-slf4j', version: '1.7.30'
-    implementation group: 'ch.qos.logback', name: 'logback-classic', version: '1.4.5'
-    // https://mvnrepository.com/artifact/ch.qos.logback/logback-core
-	//implementation group: 'ch.qos.logback', name: 'logback-core', version: '1.4.5'
+	//implementation group: 'org.slf4j', name: 'slf4j-api', version: '2.0.5'
+	//implementation group: 'org.slf4j', name: 'log4j-over-slf4j', version: '2.0.5'
+    //implementation group: 'ch.qos.logback', name: 'logback-classic', version: '1.2.11'
+    //https://mvnrepository.com/artifact/ch.qos.logback/logback-core
+	//implementation group: 'ch.qos.logback', name: 'logback-core', version: '1.2.11'
     
 }
 
