@@ -1,65 +1,36 @@
 plugins {
-    // Apply the java-library plugin for API and implementation separation.
-    id 'java-library'
+   id 'java-library'
+   id 'application'
+   id 'io.spring.dependency-management' version '1.1.0'
+   id 'org.springframework.boot' version '2.6.9'
 }
-
+group='multilittlefunctioins'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '11'
 repositories {
     mavenCentral()
 }
 
 dependencies {
-    // Use JUnit Jupiter for testing.
- //   testImplementation 'org.junit.jupiter:junit-jupiter:5.9.1'
-
-    // This dependency is exported to consumers, that is to say found on their compile classpath.
     api 'org.apache.commons:commons-math3:3.6.1'
-
-    // This dependency is used internally, and not exposed to consumers on their own compile classpath.
     implementation 'com.google.guava:guava:31.1-jre'
-    
-    // https://mvnrepository.com/artifact/io.spring.dependency-management/io.spring.dependency-management.gradle.plugin
 	implementation 'io.spring.dependency-management:io.spring.dependency-management.gradle.plugin:1.1.0'
-	
-	// https://mvnrepository.com/artifact/io.spring.dependency-management/io.spring.dependency-management.gradle.plugin
 	implementation group: 'io.spring.dependency-management', name: 'io.spring.dependency-management.gradle.plugin', version: '1.1.0', ext: 'pom'
-	
-	// https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-test
 	testImplementation group: 'org.springframework.boot', name: 'spring-boot-starter-test', version: '2.6.9'
-	// https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter
 	implementation group: 'org.springframework.boot', name: 'spring-boot-starter', version: '2.6.9'
-	// https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-web
 	implementation group: 'org.springframework.boot', name: 'spring-boot-starter-web', version: '2.6.9'
-	// https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-configuration-processor
 	implementation group: 'org.springframework.boot', name: 'spring-boot-configuration-processor', version: '2.6.9'
-	// https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-devtools
 	implementation group: 'org.springframework.boot', name: 'spring-boot-devtools', version: '2.6.9'
-	// https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-autoconfigure
 	implementation group: 'org.springframework.boot', name: 'spring-boot-autoconfigure', version: '2.6.9'
-	// https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-actuator
 	implementation group: 'org.springframework.boot', name: 'spring-boot-starter-actuator', version: '2.6.9'
-	// https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-parent
 	implementation group: 'org.springframework.boot', name: 'spring-boot-starter-parent', version: '2.6.9', ext: 'pom'
-	// https://mvnrepository.com/artifact/org.apache.commons/commons-lang3
 	implementation group: 'org.apache.commons', name: 'commons-lang3', version: '3.12.0'
-	// https://mvnrepository.com/artifact/org.apache.commons/commons-text
 	implementation group: 'org.apache.commons', name: 'commons-text', version: '1.10.0'
 
 	implementation fileTree(dir: 'libs', include: ['*.jar'])
     api 'org.apache.commons:commons-math3:3.6.1'
-    
-	// https://mvnrepository.com/artifact/org.apache.tika/tika-core
-	//implementation group: 'org.apache.tika', name: 'tika-core', version: '2.6.0'
-	
-	implementation fileTree(dir: 'libs', include: ['*.jar'])
-
-
-	// https://mvnrepository.com/artifact/org.bouncycastle/bcpkix-jdk18on
 	implementation group: 'org.bouncycastle', name: 'bcpkix-jdk18on', version: '1.72'
-	// https://mvnrepository.com/artifact/org.bouncycastle/bcprov-jdk18on
-	//implementation group: 'org.bouncycastle', name: 'bcprov-jdk18on', version: '1.72'
-	// https://mvnrepository.com/artifact/org.bouncycastle/bcutil-jdk18on
 	implementation group: 'org.bouncycastle', name: 'bcutil-jdk18on', version: '1.72'
-
 	//Kubernetes 
 	//https://mvnrepository.com/artifact/io.kubernetes/client-java
 	//implementation group: 'io.kubernetes', name: 'client-java', version: '17.0.1'
@@ -72,7 +43,6 @@ dependencies {
 	// https://mvnrepository.com/artifact/io.kubernetes/client-java-api-fluent
 	//implementation group: 'io.kubernetes', name: 'client-java-api-fluent', version: '17.0.1'
 	//compile 'io.kubernetes:client-java:17.0.1'
-	
 		//compile dependency
 	// https://mvnrepository.com/artifact/org.apache.commons/commons-lang3
 	implementation group: 'org.apache.commons', name: 'commons-lang3', version: '3.12.0'
@@ -98,12 +68,10 @@ dependencies {
 //	implementation group: 'org.jetbrains.kotlin', name: 'kotlin-stdlib-jdk8', version: '1.8.10'
 	// https://mvnrepository.com/artifact/com.squareup.okio/okio-jvm
 //	runtimeOnly group: 'com.squareup.okio', name: 'okio-jvm', version: '3.3.0'
-    
 	// https://mvnrepository.com/artifact/com.github.oshi/oshi-core
 	//implementation group: 'com.github.oshi', name: 'oshi-core', version: '6.4.0'
 	// https://mvnrepository.com/artifact/com.github.oshi/oshi-core
 	implementation group: 'com.github.oshi', name: 'oshi-core', version: '6.0.0'
-	
 		//Lombok
 	implementation group: 'org.projectlombok', name: 'lombok', version: '1.18.24'
     // Log Apis
@@ -115,12 +83,138 @@ dependencies {
     //implementation group: 'ch.qos.logback', name: 'logback-classic', version: '1.2.11'
     //https://mvnrepository.com/artifact/ch.qos.logback/logback-core
 	//implementation group: 'ch.qos.logback', name: 'logback-core', version: '1.2.11'
-    
 }
 
 configurations.all {
     exclude group: 'org.apache.logging.log4j', module: 'log4j-to-slf4j'
 }
+
+
+def envList = []
+compileJava.dependsOn('clearDist')
+test.enabled = false
+ext.getTaskName = { ->
+	return project.gradle.startParameter.taskNames[0]? project.gradle.startParameter.taskNames[0] : ''
+}
+task clearDist() {
+	delete "$buildDir/libs"
+}
+tasks.withType(JavaCompile){
+	options.encoding="UTF-8"
+}
 tasks.named('test') {
     useJUnitPlatform()
 }
+
+fileTree("src/main/resources") {
+    include "application*.yml"
+}.each { file ->
+    def propertyName = file.name
+    print propertyName
+    String envName = propertyName.substring(0, propertyName.lastIndexOf(".yml"))
+    envList.add('-'+envName)
+    task "build_dev"(dependsOn : ['build']) {
+        group = 'build'
+        description = "Assembles and tests this project for dev"
+    }
+    task "bootRun_dev"(dependsOn : ['bootRun']) {
+        group = 'application'
+        description = "Runs this project as a Spring Boot application for dev"
+    }
+}
+ext.getTaskName = { ->
+	println "project.gradle.startParameter.taskNames[0]\t"+project.gradle.startParameter.taskNames[0]
+	
+	return project.gradle.startParameter.taskNames[0]? project.gradle.startParameter.taskNames[0] : ''
+}
+
+ext.getRuntimeEnvironment = { ->
+    	def envName = getTaskName()
+		def taskName = getTaskName()
+		return envName
+}
+
+bootRun {
+	def envName = getRuntimeEnvironment()
+	applicationDefaultJvmArgs = [
+		"-Dspring.profiles.active=dev",
+		"-Dspring.config.additional-location=classpath:platconf/application.yml"]
+		args = ["skipStartupError=true"]
+}
+
+bootJar{
+        def envName = getRuntimeEnvironment();
+
+        println '[INFO] Reset jar file name'
+
+        archiveFileName = "${archiveBaseName.get()}-${archiveVersion.get()}-START.${archiveExtension.get()}"
+
+        println '[INFO] Exclude resource, jar and main class file'
+    
+	    // 排除 resource 相關設定檔、dependencies 相關 jar file、main class 程式檔案
+	    rootSpec.exclude('**.yml', '**.conf', "**.xml", "**.properties")
+	    	    // 將 dependencies jar file 複製至指定路徑
+	    // 設定 Start jar 放置目錄
+	    destinationDirectory = file("$buildDir/libs/lib")	
+}
+
+jar {
+    archiveFileName = "${archiveBaseName.get()}-${archiveVersion.get()}-RELEASE.${archiveExtension.get()}"
+	manifest {
+	   		attributes 'Main-Class': "org.springframework.boot.loader.JarLauncher"
+	        attributes 'Start-Class': 'multilittlefunctioins.multilittlefunctioins.multilittlefunctioins.SystemResourceMonitor.SystemInfoMonitor'
+	    }
+	    		// Main Class pull out to BOOT-INF dir
+
+        println '[INFO] Exclude resource, jar file'
+	    // 排除 resource 相關設定檔、dependencies 相關 jar file
+	    rootSpec.exclude('**.yml', '**.conf', "**.xml", "**.properties")
+
+	    println '[INFO] Copy lib jar file'
+	    // 將 dependencies jar file 複製至指定路徑
+	    compileJava.dependsOn('copyLib')
+
+	    println '[INFO] Copy resource file'
+	    // 將 Resource file 複製至指定路徑
+	    compileJava.dependsOn('copySource')
+
+	    // 設定 Relese jar 放置目錄
+	    destinationDirectory = file("$buildDir/libs/lib")
+}
+
+
+// Pull out lib from jar
+task copyLib(type: Copy) {
+	// set lib path in jar
+    from configurations.compileClasspath
+    into "$buildDir/libs/lib"
+}
+
+task copySource(type: Copy){
+
+	def envName = getRuntimeEnvironment();
+	def envArr = envList
+	def index = envArr.indexOf('-'+envName)
+	if(index>=0){
+		envArr.remove(index)
+	}
+	
+	println ">>> exclude enviroment list: ${envArr}"
+	
+	from("src/main/resources"){
+		eachFile{f -> 
+			def propertyName = f.name
+			if(envArr.any{propertyName.contains(it)}) {
+	    		f.exclude()
+			}
+		}
+	}
+	into "$buildDir/libs/config"
+}
+
+
+application {
+    applicationDefaultJvmArgs = ['-Xmx512m', '-XX:MaxPermSize=512m', '-Dinm.testmode=true', '-Dfile.encoding=UTF-8', '-Xdebug','-Xrunjdwp:transport=dt_socket,server=y,address=7979,suspend=n']
+//	args = ["skipStartupError=true"]
+}
+

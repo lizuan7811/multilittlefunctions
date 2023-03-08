@@ -1,14 +1,24 @@
 package multilittlefunctioins;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.ConfigurableApplicationContext;
 
-import lombok.extern.slf4j.Slf4j;
-@SpringBootApplication(scanBasePackages = {"multilittlefunctioins", "monitorsysinfoutil"})
+import monitorsysinfoutil.multiportdeal.WebPortConfig;
+
+@SpringBootApplication(scanBasePackages = { "multilittlefunctioins", "monitorsysinfoutil" })
 public class MultiLittleFunctionsStart {
 
-	public static void main(String[] args) {
-		SpringApplication.run(MultiLittleFunctionsStart.class,args);
-	}
-}
+//	@Autowired
+//	private WebPortConfig webPortConfig;
 
+	public static void main(String[] args) {
+		ConfigurableApplicationContext context = SpringApplication.run(MultiLittleFunctionsStart.class, args);
+		WebPortConfig webPortConfig = context.getBean(WebPortConfig.class);
+		webPortConfig.servletWebServerFactories().forEach(tctServlet -> {
+			tctServlet.getWebServer();
+		});
+	}
+
+}

@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import multilittlefunctioins.SystemResourceMonitor.service.CallToLogSysInfoService;
 @RestController
-@RequestMapping("/calltolog")
+//@RequestMapping("/app/v1/callsysinfo")
 public class CallToLogSysInfoController {
 	private final CallToLogSysInfoService callToLogSysInfoService;
 
@@ -18,7 +18,7 @@ public class CallToLogSysInfoController {
 		this.callToLogSysInfoService = callToLogSysInfoService;
 	}
 
-	@GetMapping(value = "/callSysCpu", produces = MediaType.APPLICATION_JSON_VALUE)
+	@GetMapping(value = "/app/v1/callsysinfo/callSysCpu", produces = MediaType.APPLICATION_JSON_VALUE)
 	public String callSysCpu() {
 		String result = StringUtils.EMPTY;
 
@@ -31,7 +31,7 @@ public class CallToLogSysInfoController {
 //		return null;
 	}
 
-	@GetMapping(value = "/callSysMem", produces = MediaType.APPLICATION_JSON_VALUE)
+	@GetMapping(value = "/app/v1/callsysinfo/callSysMem", produces = MediaType.APPLICATION_JSON_VALUE)
 	public String callSysMem() {
 		String result = StringUtils.EMPTY;
 
