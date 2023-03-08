@@ -7,22 +7,30 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import lombok.Value;
+import lombok.extern.slf4j.Slf4j;
+import monitorsysinfoutil.multiportdeal.WebPortConfig;
 import multilittlefunctioins.SystemResourceMonitor.service.CallToLogSysInfoService;
 @RestController
-//@RequestMapping("/app/v1/callsysinfo")
+@RequestMapping("/app/v1/callsysinfo")
+@Slf4j
 public class CallToLogSysInfoController {
 	private final CallToLogSysInfoService callToLogSysInfoService;
 
+	private final WebPortConfig webPortConfig;
+	
 	@Autowired
-	public CallToLogSysInfoController(CallToLogSysInfoService callToLogSysInfoService) {
+	public CallToLogSysInfoController(CallToLogSysInfoService callToLogSysInfoService,WebPortConfig webPortConfig) {
 		this.callToLogSysInfoService = callToLogSysInfoService;
+		this.webPortConfig=webPortConfig;
 	}
 
-	@GetMapping(value = "/app/v1/callsysinfo/callSysCpu", produces = MediaType.APPLICATION_JSON_VALUE)
+	@GetMapping(value = "/callSysCpu", produces = MediaType.APPLICATION_JSON_VALUE)
 	public String callSysCpu() {
 		String result = StringUtils.EMPTY;
 
 		try {
+			log.debug("Port: {}",webPortConfig.getServerContext().get(0).getPort());
 			result = callToLogSysInfoService.readSysCpuInfo();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -31,11 +39,12 @@ public class CallToLogSysInfoController {
 //		return null;
 	}
 
-	@GetMapping(value = "/app/v1/callsysinfo/callSysMem", produces = MediaType.APPLICATION_JSON_VALUE)
+	@GetMapping(value = "/callSysMem", produces = MediaType.APPLICATION_JSON_VALUE)
 	public String callSysMem() {
 		String result = StringUtils.EMPTY;
 
 		try {
+			log.debug("Port: {}",webPortConfig.getServerContext().get(0).getPort());
 			result = callToLogSysInfoService.readSysMemInfo();
 
 		} catch (Exception e) {

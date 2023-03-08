@@ -15,6 +15,7 @@ import org.springframework.boot.web.embedded.tomcat.TomcatServletWebServerFactor
 import org.springframework.context.annotation.Configuration;
 
 import lombok.Data;
+import lombok.Value;
 
 @Data
 @Configuration
@@ -23,11 +24,12 @@ public class WebPortConfig {
 
 	private List<ServerContext> serverContext;
 
+	
 	@PostConstruct
 	public List<TomcatServletWebServerFactory> servletWebServerFactories() {
 		return serverContext.stream().map(context -> {
 			TomcatServletWebServerFactory tomcatServletWebServerFactory = new TomcatServletWebServerFactory();
-			tomcatServletWebServerFactory.addAdditionalTomcatConnectors(createConnector(context));
+//			tomcatServletWebServerFactory.addAdditionalTomcatConnectors(createConnector(context));
 			tomcatServletWebServerFactory.setContextPath(context.getContextPath());
 			tomcatServletWebServerFactory.setUriEncoding(Charset.defaultCharset());
 			tomcatServletWebServerFactory.setPort(context.getPort());

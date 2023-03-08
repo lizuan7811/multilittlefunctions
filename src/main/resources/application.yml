@@ -1,14 +1,8 @@
 server:
-  port: 8888
+  port: 9999
 serverconfig:
   server-context:
     - port: 9999
-      contextpath: '/app/v1/callsysinfo'
-    - port: 5555
-      contextPath: '/app/v2/gateway'
-    - port: 8083
-      contextPath: '/app/v3/project'
-    - port: 8081
-      contextPath: '/app/v4/project1'
-    - port: 8082
-      contextPath: '/app/v5/project2'
+      contextpath: /app/v1/callsysinfo
+logging:
+  config: 'file:config/logback.xml'
