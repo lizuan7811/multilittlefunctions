@@ -1,4 +1,4 @@
-package makeimagetocharphoto;
+package little_func_makeimagetocharphoto;
 
 import java.awt.image.BufferedImage;
 import java.io.File;

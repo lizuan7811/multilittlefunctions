@@ -1,4 +1,4 @@
-package multilittlefunctioins;
+package little_func_multilittlefunctioins;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

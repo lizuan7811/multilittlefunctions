@@ -1,4 +1,4 @@
-package multilittlefunctioins.SystemResourceMonitor.service;
+package little_func_multilittlefunctioins.SystemResourceMonitor.service;
 
 public interface CallToLogSysInfoService {
 	

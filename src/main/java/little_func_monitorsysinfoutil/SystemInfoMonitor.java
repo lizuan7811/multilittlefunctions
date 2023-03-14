@@ -1,4 +1,4 @@
-package monitorsysinfoutil;
+package little_func_monitorsysinfoutil;
 
 import java.text.DecimalFormat;
 

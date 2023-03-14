@@ -1,10 +1,11 @@
-package multilittlefunctioins.SystemResourceMonitor.serviceImpl;
+package little_func_multilittlefunctioins.SystemResourceMonitor.serviceImpl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import monitorsysinfoutil.SystemInfoMonitor;
-import multilittlefunctioins.SystemResourceMonitor.service.CallToLogSysInfoService;
+import little_func_monitorsysinfoutil.SystemInfoMonitor;
+import little_func_multilittlefunctioins.SystemResourceMonitor.service.CallToLogSysInfoService;
+
 
 @Service
 public class CallToLogSysInfoServiceImpl implements CallToLogSysInfoService {

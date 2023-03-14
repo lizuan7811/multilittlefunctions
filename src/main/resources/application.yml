@@ -5,4 +5,17 @@ serverconfig:
     - port: 9999
       contextpath: /app/v1/callsysinfo
 logging:
-  config: 'file:config/logback.xml'
+  config: 'file:src/main/resources/logback.xml'
+spring:
+  application:
+    name: spring-boot-swagger3.0
+#  mvc:
+#    pathmatch:
+#      match-strategy: ant_path_matcher
+      
+swagger:
+  enable: true
+  application-name: ${spring.application.name}
+  application-version: 1.0
+  application-description: springfox swagger 3.0
+  try-host: http://localhost:${server.port}
